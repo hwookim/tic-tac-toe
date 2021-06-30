@@ -26,10 +26,10 @@ const App = () => {
     items.forEach((item) => item.addEventListener("click", onClickItem));
     newGameBtn.addEventListener("click", startNewGame);
     resetScoreBtn.addEventListener("click", resetScore);
-    initState();
+    setState();
   };
 
-  const initState = () => {
+  const setState = () => {
     state.squares = [[], [], []];
     items.forEach((item) => (item.innerText = " "));
     scoreBoard[LEFT].innerText = state[LEFT + "Score"];
@@ -97,7 +97,7 @@ const App = () => {
     state[state.turn + "Score"]++;
 
     changeTurn();
-    initState();
+    setState();
     state.winner = null;
   };
 
@@ -107,7 +107,7 @@ const App = () => {
 
   const startNewGame = () => {
     changeTurn();
-    initState();
+    setState();
   };
 
   const resetScore = () => {
