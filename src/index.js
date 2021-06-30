@@ -28,7 +28,7 @@ const App = () => {
     checkWinner(x, y);
 
     if (state.winner) {
-      alert(state.turn + " 승리!");
+      setTimeout(win, 100);
     }
     changeTurn();
   };
@@ -70,6 +70,11 @@ const App = () => {
         state.squares[1][1] === state.turn &&
         state.squares[2][0] === state.turn)
     );
+  };
+
+  const win = () => {
+    alert(state.turn + " 승리!");
+    initState();
   };
 
   const changeTurn = () => {
