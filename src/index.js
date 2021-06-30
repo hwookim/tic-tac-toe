@@ -5,26 +5,26 @@ import { LEFT, RIGHT } from "./constants.js";
 const App = () => {
   const game = new Game();
 
-  const items = document.querySelectorAll(".grid-item");
-  const scoreBoard = {
+  const $items = document.querySelectorAll(".grid-item");
+  const $scoreBoard = {
     left: document.querySelector(".left-score"),
     right: document.querySelector(".right-score"),
   };
-  const newGameBtn = document.querySelector(".new-game-btn");
-  const resetScoreBtn = document.querySelector(".reset-score-btn");
+  const $newGameBtn = document.querySelector(".new-game-btn");
+  const $resetScoreBtn = document.querySelector(".reset-score-btn");
 
   const init = () => {
-    items.forEach((item) => item.addEventListener("click", onClickItem));
-    newGameBtn.addEventListener("click", startNewGame);
-    resetScoreBtn.addEventListener("click", resetScore);
+    $items.forEach((item) => item.addEventListener("click", onClickItem));
+    $newGameBtn.addEventListener("click", startNewGame);
+    $resetScoreBtn.addEventListener("click", resetScore);
     startNewGame();
   };
 
   const startNewGame = () => {
     const scores = game.getScores();
-    items.forEach((item) => (item.innerText = " "));
-    scoreBoard[LEFT].innerText = scores[LEFT];
-    scoreBoard[RIGHT].innerText = scores[RIGHT];
+    $items.forEach((item) => (item.innerText = " "));
+    $scoreBoard[LEFT].innerText = scores[LEFT];
+    $scoreBoard[RIGHT].innerText = scores[RIGHT];
 
     game.startNewGame();
   };
