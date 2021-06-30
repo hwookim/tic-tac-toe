@@ -1,11 +1,24 @@
+const LEFT = "left";
+const RIGHT = "right";
+const MARK = {
+  [LEFT]: "O",
+  [RIGHT]: "X",
+};
+
 const App = () => {
   const state = {
-    turn: "O",
+    turn: LEFT,
     squares: [[], [], []],
     winner: null,
+    leftScore: 0,
+    rightScore: 0,
   };
 
   const items = document.querySelectorAll(".grid-item");
+  const scoreBoard = {
+    left: document.querySelector(".left-score"),
+    right: document.querySelector(".right-score"),
+  };
 
   const init = () => {
     items.forEach((item) => item.addEventListener("click", onClickItem));
@@ -23,12 +36,13 @@ const App = () => {
     }
     const [x, y] = target.dataset.position.split(",");
 
-    target.innerText = state.turn;
+    target.innerText = MARK[state.turn];
     state.squares[x][y] = state.turn;
     checkWinner(x, y);
 
     if (state.winner) {
       setTimeout(win, 100);
+      return;
     }
     changeTurn();
   };
@@ -74,11 +88,14 @@ const App = () => {
 
   const win = () => {
     alert(state.turn + " 승리!");
+    scoreBoard[state.turn].innerText = ++state[state.turn + "Score"];
+
     initState();
+    changeTurn();
   };
 
   const changeTurn = () => {
-    state.turn = state.turn === "O" ? "X" : "O";
+    state.turn = state.turn === LEFT ? RIGHT : LEFT;
   };
 
   init();
