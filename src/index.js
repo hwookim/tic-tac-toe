@@ -1,9 +1,4 @@
-const LEFT = "left";
-const RIGHT = "right";
-const MARK = {
-  [LEFT]: "O",
-  [RIGHT]: "X",
-};
+import { LEFT, RIGHT, MARK } from "./constants.js";
 
 const App = () => {
   const state = {
