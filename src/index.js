@@ -34,10 +34,10 @@ const App = () => {
   };
 
   const checkWinner = (x, y) => {
-    if (checkHorizontal(x) || checkVertical(y)) {
+    if (isHorizontal(x) || isVertical(y)) {
       state.winner = state.turn;
     } else if (x === y || Math.abs(x - y) === 2) {
-      if (checkDiagonal()) {
+      if (isDiagonal()) {
         state.winner = state.turn;
       }
     } else {
@@ -45,7 +45,7 @@ const App = () => {
     }
   };
 
-  const checkHorizontal = (x) => {
+  const isHorizontal = (x) => {
     return (
       state.squares[x][0] === state.turn &&
       state.squares[x][1] === state.turn &&
@@ -53,7 +53,7 @@ const App = () => {
     );
   };
 
-  const checkVertical = (y) => {
+  const isVertical = (y) => {
     return (
       state.squares[0][y] === state.turn &&
       state.squares[1][y] === state.turn &&
@@ -61,7 +61,7 @@ const App = () => {
     );
   };
 
-  const checkDiagonal = () => {
+  const isDiagonal = () => {
     return (
       (state.squares[0][0] === state.turn &&
         state.squares[1][1] === state.turn &&
