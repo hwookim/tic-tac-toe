@@ -28,3 +28,16 @@ body {
   border: 1px solid black;
   font-size: 12rem;
 }
+
+.tool-container {
+  display: flex;
+  margin-top: 20px;
+  width: 36rem;
+  justify-content: space-between;
+}
+
+.tool-container button {
+  width: 250px;
+  height: 100px;
+  font-size: 1.5rem;
+}
