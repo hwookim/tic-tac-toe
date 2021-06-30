@@ -6,20 +6,25 @@ body {
 
 body {
   display: flex;
+  flex-direction: column;
   height: 100vh;
   justify-content: center;
   align-items: center;
 }
 
+.scoreboard {
+  font-size: 5rem;
+}
+
 .grid-container {
   display: grid;
-  grid-template-columns: 200px 200px 200px;
-  grid-template-rows: 200px 200px 200px;
+  grid-template-columns: 12rem 12rem 12rem;
+  grid-template-rows: 12rem 12rem 12rem;
 }
 
 .grid-item {
   display: flex;
   justify-content: center;
   border: 1px solid black;
-  font-size: 200px;
+  font-size: 12rem;
 }
