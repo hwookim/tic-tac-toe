@@ -19,9 +19,11 @@ const App = () => {
     left: document.querySelector(".left-score"),
     right: document.querySelector(".right-score"),
   };
+  const newGameBtn = document.querySelector(".new-game-btn");
 
   const init = () => {
     items.forEach((item) => item.addEventListener("click", onClickItem));
+    newGameBtn.addEventListener("click", startNewGame);
     initState();
   };
 
@@ -90,13 +92,18 @@ const App = () => {
     alert(MARK[state.turn] + " 승리!");
     scoreBoard[state.turn].innerText = ++state[state.turn + "Score"];
 
-    initState();
     changeTurn();
+    initState();
     state.winner = null;
   };
 
   const changeTurn = () => {
     state.turn = state.turn === LEFT ? RIGHT : LEFT;
+  };
+
+  const startNewGame = () => {
+    changeTurn();
+    initState();
   };
 
   init();
