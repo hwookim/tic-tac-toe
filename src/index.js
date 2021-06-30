@@ -3,10 +3,9 @@ const App = () => {
     turn: "O",
   };
 
-  const items = document.querySelectorAll(".grid-item");
-
-  const changeTurn = () => {
-    state.turn = state.turn === "O" ? "X" : "O";
+  const init = () => {
+    const items = document.querySelectorAll(".grid-item");
+    items.forEach((item) => item.addEventListener("click", onClickItem));
   };
 
   const onClickItem = ({ target }) => {
@@ -18,7 +17,11 @@ const App = () => {
     changeTurn();
   };
 
-  items.forEach((item) => item.addEventListener("click", onClickItem));
+  const changeTurn = () => {
+    state.turn = state.turn === "O" ? "X" : "O";
+  };
+
+  init();
 };
 
 App();
