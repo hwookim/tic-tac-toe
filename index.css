@@ -18,5 +18,8 @@ body {
 }
 
 .grid-item {
+  display: flex;
+  justify-content: center;
   border: 1px solid black;
+  font-size: 200px;
 }
