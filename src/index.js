@@ -20,16 +20,20 @@ const App = () => {
     right: document.querySelector(".right-score"),
   };
   const newGameBtn = document.querySelector(".new-game-btn");
+  const resetScoreBtn = document.querySelector(".reset-score-btn");
 
   const init = () => {
     items.forEach((item) => item.addEventListener("click", onClickItem));
     newGameBtn.addEventListener("click", startNewGame);
+    resetScoreBtn.addEventListener("click", resetScore);
     initState();
   };
 
   const initState = () => {
     state.squares = [[], [], []];
     items.forEach((item) => (item.innerText = " "));
+    scoreBoard[LEFT].innerText = state[LEFT + "Score"];
+    scoreBoard[RIGHT].innerText = state[RIGHT + "Score"];
   };
 
   const onClickItem = ({ target }) => {
@@ -90,7 +94,7 @@ const App = () => {
 
   const win = () => {
     alert(MARK[state.turn] + " 승리!");
-    scoreBoard[state.turn].innerText = ++state[state.turn + "Score"];
+    state[state.turn + "Score"]++;
 
     changeTurn();
     initState();
@@ -104,6 +108,12 @@ const App = () => {
   const startNewGame = () => {
     changeTurn();
     initState();
+  };
+
+  const resetScore = () => {
+    state.leftScore = 0;
+    state.rightScore = 0;
+    startNewGame();
   };
 
   init();
