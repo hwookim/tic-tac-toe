@@ -87,7 +87,7 @@ const App = () => {
   };
 
   const win = () => {
-    alert(state.turn + " 승리!");
+    alert(MARK[state.turn] + " 승리!");
     scoreBoard[state.turn].innerText = ++state[state.turn + "Score"];
 
     initState();
