@@ -92,6 +92,7 @@ const App = () => {
 
     initState();
     changeTurn();
+    state.winner = null;
   };
 
   const changeTurn = () => {
